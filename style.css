@@ -1,0 +1,309 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Times New Roma;
+    
+}
+.banner{
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(4,9,30,0.75),rgba(4,9,30,0.75)),url(images/logo.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.navigationbar{
+    width: 80%;
+    margin: auto;
+    padding: 75px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.logo{
+    width: 100px;
+    cursor: pointer;        
+}
+.navigationbar ul li{
+    list-style:none;
+    display:inline-block;
+    margin:0 20px;
+     position: relative;
+}
+.navigationbar ul li a{
+    text-decoration: none;
+    color: bisque;
+    text-transform: uppercase;
+}
+.navigationbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+.navigationbar ul li:hover::after{
+   width: 100%; 
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);    
+    text-align: center;
+    color: #fff;
+}
+.content h1{
+    font-size: 70px;
+    margin-top: 50px;
+    color: cornsilk;
+}
+.content p{
+    color: dimgrey;
+}
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 300;
+    margin-right: -400;
+    margin-bottom: 10;
+    margin-left: 480;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background: #009688;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    transition: 1s;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+
+/*------------Camera page------------*/
+.sub-banner{
+   width: 100%;
+   height: 50vh;
+   background-image: linear-gradient(rgba(4,9,30,0.75),rgba(4,9,30,0.75)),url(images/cameras.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.sub-banner h1{
+    text-align: center;
+    margin-top: 100px;
+    color: #fff;
+}
+.Cameras{
+    width: 100%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 0px;
+
+}
+.Cameras-col{
+    flex-basis: 48%;
+    padding: 0px 100px;
+    text-align: center;
+}
+.Cameras-col h2{
+    padding-top: 0;
+    padding-bottom: 50px;
+}
+.Cameras-col p{
+    padding: 15px 0 25;
+    text-align: center;
+}
+.Cameras-col img{
+    padding-top: 100px;
+}
+.Cameras{
+    background-color:antiquewhite;
+    background-size: auto;
+}
+.source{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/*--------- Dark Room ----------*/
+
+
+.thrd-banner{
+   width: 100%;
+   height: 50vh;
+   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/Beginners-Guide-To-The-Darkroom.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.thrd-banner h1{
+    margin-top: 100px;
+    text-align: center;
+    color: bisque;
+}
+.darkroom{
+    width: 100%;
+    margin:auto;
+    padding-top: 80px;
+    padding-bottom: 0px;
+}
+.darkroom-col{
+    flex-basis: 48%;
+    padding: 0px 100px;
+    text-align: center;
+}
+.darkroom-col h2{
+    padding-top: 0;
+    padding-bottom: 50px;
+    text-align:center;
+}
+.darkroom-col p{
+     padding-top: 0;
+    padding-bottom: 0px;
+    text-align: center;
+}
+.darkroom-col h3{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+.darkroom-col p3{
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: left;
+}
+.darkroom-col h4{
+    padding-top: 20;
+    padding-bottom: 10px;
+    text-align: center;
+   
+}
+.darkroom-col p4{
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+.foto2{
+    width: 100%;
+    margin-top: 30px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    margin-left: -180px;
+}
+.foto1{
+  width: 100%;
+    margin-top: 30px;
+    margin-right: 0px;
+    margin-bottom: 30px;
+    margin-left: -180px;  
+}
+.darkroom img{
+    width: 50%;
+   margin-top: 0px;
+   margin-right: 0px;
+   margin-bottom: 30px;
+   margin-left: 350px;
+}
+.darkroom{
+    background-color:#ed9393;
+    background-size: auto;
+}
+.container1{
+    margin-top: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   margin-left: 430px;
+}
+.headervid{
+    text-align: center ;
+}
+
+
+/*--------porfolio------*/
+.quad-banner{
+ width: 100%;
+   height: 50vh;
+   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/film-photography-592347645-59e4d0609abed500119e7b14.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.quad-banner h1{
+    text-align: center;
+    margin-top: 100px;
+    color: bisque;
+}
+.portfolio-col h2{
+    text-align: center;
+    margin-top: 0px;
+}
+.portfolio-col h3{
+    text-align: center;
+     margin-top: 20px;
+}
+.container2{
+    padding: 30px;
+}
+.portfolio{
+    background-color:#8c775f;
+    background-size: cover;
+}
+
+/*----------aboutme--------*/
+
+.fith-banner{
+ width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/close-up-of-man-photographing-through-dslr-736206565-59a8bd2b054ad90010f15275.jpg);
+   background-size: cover;
+   background-position: center;
+}
+.fith-banner h1{
+    text-align: center;
+    margin-top: 100px;
+    color: bisque;
+}
+.fith-banner h2{
+    padding-top: 50px;
+    padding-right: 200px;
+    padding-left: 200px;
+    text-align: center;
+    color: bisque;
+}
+.fith-banner h3{
+    text-align: center;
+    margin-top: 50;
+    color:coral;
+}
+
+
+
+
+
+
+
+
+
+
+

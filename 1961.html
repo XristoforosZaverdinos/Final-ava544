@@ -1,0 +1,233 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Παρουσίαση Έργου Τέχνης</title>
+	
+	
+	<script src="p5.min.js">
+	</script>	
+	
+	<script src="p5.sound.js">
+	</script>
+	
+	<script src="p5.button.min.js">
+	</script>
+	
+</head>
+
+<body> 
+
+	<h1>Θέατρον, 1961</h1>
+
+	<p>
+		Η παρακάτω παρουσίαση του πίνακα παραθέτει ππληροφορίες σχετικά με το περιεχόμενο της συνθεση και για τον καλλητέχνη του έργου, μέσω διάδρασης
+		<ul>
+			<li>
+				Χρησημοποίησε τα βελάκια για να περιηγηθείς στις εικόνες. 
+			</li>
+			<li>
+				Πατώντας πάνω στο κουμπί Play Sound ο χρήστης μπορεί να ενεργοποιήσει την ηχητική επένδυση.
+			</li>
+			<li>
+				Ο χρήστης μπορεί να ακούσει την αφήγηση του κειμένου πατώντας δύο φορές στο εικονίδιο του ηχείου (για τη πρώτη αφήγηση)
+				
+			</li>
+		<ul>
+	</p>
+
+
+
+	
+</body>
+
+<script>
+
+
+	
+		let img;				
+		let description;		
+		let audioDescription;	
+	
+		const folder = "images/"; 
+		const filenames = 
+		[
+			"carnival person.png",
+			"both carnivals.png",
+			"lamp.png",
+			"71377_2000_2000-500x639.jpg"
+		];
+		
+		
+		const imgDescriptions = 
+		[
+		    "Ο χιτώνας ή χλαίνα ήταν αρχαίο ελληνικό ένδυμα. Διακρίνεται σε δωρικό και ιωνικό ρυθμό. Ο δωρικός χιτώνας, κοινώς 'χλαίνη', ήταν κυρίως ανδρικό ένδυμα, υφασμένο από μαλλί. Τον φορούσαν στον αριστερό ώμο, ενώ κούμπωνε επάνω από το δεξί ώμο με παραμάνα, αφήνοντας το δεξί μέρος του σώματος γυμνό.",
+			"Το προσωπείο, το σημαντικότερο εξάρτημα της σκηνικής αμφίεσης, έχει τις ρίζες του στις διονυσιακές γιορτές, τότε που έβαφαν τα πρόσωπά τους με το σκουρόχρωμο κατακάθι του νέου κρασιού και στόλιζαν τα κεφάλια με φυλλωσιές και κλαδιά. Σύμφωνα με την παράδοση, την πρώτη μάσκα με ανθρώπινα χαρακτηριστικά φτιάχνει ο Θέσπις, την τελειοποιεί ο Χοίριλος, ενώ ο Φρύνιχος εισάγει το γυναικείο πρόσωπο. Ο διαχωρισμός των φύλων βέβαια γινόταν από πολύ παλαιότερα, βάφοντας το δέρμα ώστε να είναι άσπρο για τις γυναίκες και «ηλιοκαμένο» για τους άντρες. Τα προσωπεία κατασκευάζονταν με υφασμάτινα κουρέλια και γύψο, με επιζωγραφισμένα τα χαρακτηριστικά του προσώπου και είχαν σχήμα κράνους γιατί σκέπαζαν πρόσωπο και κεφάλι. Οι ρίζες της μάσκας ανάγονται στις μυστηριακές τελετουργίες και τα μαγικά δρώμενα των πρωτόγονων λαών της Ασίας και της Αφρικής, ενώ οι απαρχές της θεατρικής ζωής της ανιχνεύονται στις λατρευτικές εκδηλώσεις προς τιμή του Θεού Διονύσου. Ετσι εξηγείται γιατί η μάσκα αποτελεί βασικό στοιχείο του λεγόμενου τελετουργικού, μη συμβατικού και μη κυριολεκτικού θεάτρου. Χαρακτηριστική επιβεβαίωση το Ασιατικό θέατρο, που γεννήθηκε μασκοφορεμένο και παραμένει έτσι μέχρι σήμερα.<br>Στο αρχαίο Ελληνικό Θέατρο συναντάμε τη μάσκα ως χρηστικό εργαλείο, που παρέχει τη δυνατότητα στους τρεις ηθοποιούς να υποδύονται πολλούς ρόλους, εξυπηρετώντας με αυτό τον τρόπο την θεατρική οικονομία. Εξάλλου σε ένα θέατρο, που είχε την ιδιαιτερότητα να στελεχώνεται αποκλειστικά με άνδρες ηθοποιούς, η μάσκα έλυνε το πρόβλημα της ερμηνείας των γυναικείων ρόλων. Με σοβαρά χαρακτηριστικά και αποτυπωμένα τα τραγικά συναισθήματα του προσώπου, οι μάσκες της τραγωδίας διαφοροποιούνταν από εκείνες της κωμωδίας, που κατασκευάζονταν σκόπιμα υπερβολικές και με γκροτέσκα χαρακτηριστικά για να αναδεικνύεται το κωμικό στοιχείο.",
+			"Μετά την απελευθέρωση από την τουρκοκρατία, ο αρχικός φωτισμός των σπιτιών ήταν με δαδιά, λυχνάρια και φανάρια λαδιού. Ακουλούθησαν οι λάμπες πετρελαίου, τις οποίες το 1862 αντικατέστησε το φωταέριο.Το 1889 φτάνει το 'ηλεκτρικό' στην Ελλάδα. Το πρώτο εργοστάσιο ηλεκτρισμού ήταν στη γωνία Πανεπιστημίου και Βουκουρεστίου, που έδωσε φως στην πόλη της Αθήνας και συγκεκριμένα στις πλατείες Συντάγματος και Ομόνοιας. Το πρώτο κτίριο που φωτίζεται είναι τα Ανάκτορα, καθώς και το σπίτι του προέδρου της ηλεκτρικής εταιρείας Α. Μελά. Πολύ σύντομα ο ηλεκτροφωτισμός επεκτείνεται στο ιστορικό κέντρο της Πρωτεύουσας. Τον ίδιο χρόνο η τουρκοκρατούμενη Θεσσαλονίκη θα δει κι αυτή το ηλεκτρικό φως, καθώς Βελγική Εταιρία αναλαμβάνει απ' τις Τουρκικές αρχές το φωτισμό και την τροχιοδρόμηση της Πόλης με την κατασκευή εργοστασίου παραγωγής ηλεκτρικής ενέργειας.",
+			"Νίκος Εγγονόπουλος βιογραφία:<br> Ο Νίκος Εγγονόπουλος Σπούδασε στη Σχολή Καλών Τεχνών της Αθήνας με δασκάλους τους Κωνσταντίνο Παρθένη, Δημήτριο Μπισκίνη, Θωμά Θωμόπουλο και Γιάννη Κεφαλληνό. Μετά την αποφοίτησή του το 1938, δούλεψε κοντά στο ζωγράφο Ευάγγελο Ιωαννίδη και χάρη στη μαθητεία του κοντά στο Φώτη Κόντογλου και τον καθηγητή Αλέξανδρο Ξυγγόπουλο ήλθε σε επαφή με την παράδοση και την ουσία της βυζαντινής και μεταβυζαντινής τέχνης. Μαζί με το Γιάννη Τσαρούχη δούλεψε ως βοηθός στη μνημειακή τοιχογραφία που ο Κόντογλου ιστόρησε στο σπίτι του και σήμερα βρίσκεται στην Εθνική Πινακοθήκη. "
+		];
+		
+		
+		const audioFolder = "audio/";
+		const audioFiles = 
+		[
+			"xytwnas.mp3",
+			"prvsopeio.mp3",
+			"lampa.mp3",
+			"1961.mp3"
+			
+		];
+		
+	
+		let audioButtonImg;
+		const audioImg = ["audio-off-2.png", "audio-on-2.png"];
+		let audioSwitch = 1; 
+		
+		let counter = 0;
+		
+		let arrowLeft;
+		let arrowRIght;
+		
+		
+		
+		let sound;
+		
+		
+		let buttonPlay = {x:950, y:10, w:300, h:100, text:'Play Sound', text_size:50};
+		console.log(' create button');
+		
+		buttonPlay.on_pressed = play;
+		
+		
+		function preload() 
+		{
+			img = loadImage(folder + filenames[counter]);
+			sound = createAudio('1961music.mp3');
+		}
+		
+		
+		
+		
+		function setup() 
+		{
+			createCanvas(1920, 1100);	
+			
+			description = createSpan(imgDescriptions[counter]);
+			description.position(1000, 650);
+			
+			arrowLeft = createImg("images/LeftKeyArrrow.png");
+			arrowRight = createImg("images/RightKeyArrrow.png");
+			
+			arrowLeft.mousePressed(pressedLeft);
+			arrowRight.mousePressed(pressedRight);
+			
+			
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			audioDescription.play();
+			
+			audioButtonImg = createImg(folder+audioImg[1]);
+			audioButtonImg.mousePressed(audioSwitchF);
+button(buttonPlay);
+		}
+		
+		function draw() 
+		{
+		clear();
+		background(163,165,141);
+			image(img, 90, 20, 750, 956);
+			
+									
+			arrowLeft.position(10,670);
+			arrowRight.position(848,670);
+			
+			arrowLeft.size(90,90);
+			arrowRight.size(90,90);
+			
+			audioButtonImg.position( 1000, 600);
+			
+			button(buttonPlay);
+		}
+		
+		function play() // this is called when the button is clicked
+{
+	//playing = true; // we check this variable in draw()
+	console.log('Play is clicked');
+	
+	sound.stop();// play the sound
+	if (audioSwitch == 1)
+				sound.play();
+}
+		
+		function pressedLeft()
+		{
+		   
+			counter--;
+			
+			if (counter < 0)
+			{
+				counter = filenames.length-1;
+			}
+		}
+		
+		function pressedRight()
+		{
+			counter++;
+			
+			if (counter >= filenames.length)
+			{
+				counter = 0;
+			}
+			
+			
+		}
+		
+		function mouseClicked()
+		{	
+			img = loadImage(folder + filenames[counter]);	
+			description.html(imgDescriptions[counter]);
+			
+			audioDescription.stop();
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			if (audioSwitch == 1)
+				audioDescription.play();
+		}
+		
+		function keyPressed()
+		{
+			console.log(keyCode);
+		
+			if (keyCode == '37') 
+			{
+				pressedLeft();
+				mouseClicked();
+			} 
+			else if (keyCode == 39) 
+			{
+				pressedRight();
+				mouseClicked();
+			}
+			
+			if (keyCode == 32)
+				audioSwitchF();
+		}
+		
+		function audioSwitchF()
+		{
+			if (audioSwitch == 0)
+			{
+				audioSwitch = 1;
+				audioDescription.play();
+			}
+			else
+			{
+				audioSwitch = 0;
+				audioDescription.stop();
+			}
+				
+			audioButtonImg.remove();
+			audioButtonImg = createImg(folder+audioImg[audioSwitch]);
+			audioButtonImg.mousePressed(audioSwitchF);
+		}
+		
+
+	</script>
+</html>

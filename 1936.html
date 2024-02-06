@@ -1,0 +1,239 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Παρουσίαση Έργου Τέχνης</title>
+	
+	<script src="p5.min.js">
+	</script>	
+	
+	<script src="p5.sound.js">
+	</script>
+	
+	<script src="p5.button.min.js">
+	</script>	
+	
+</head>
+
+<body> 
+
+	<h1>Νεκρή φύση, 1936</h1>
+
+	<p>
+		Η παρακάτω παρουσίαση του πίνακα παραθέτει ππληροφορίες σχετικά με το περιεχόμενο της συνθεση και για τον καλλητέχνη του έργου, μέσω διάδρασης
+		<ul>
+			<li>
+				Χρησημοποίησε τα βελάκια για να περιηγηθείς στις εικόνες. 
+			</li>
+			<li>
+				Πατώντας πάνω στο κουμπί Play Sound ο χρήστης μπορεί να ενεργοποιήσει την ηχητική επένδυση.
+			</li>
+			<li>
+				Ο χρήστης μπορεί να ακούσει την αφήγηση του κειμένου πατώντας δύο φορές στο εικονίδιο του ηχείου (για τη πρώτη αφήγηση)
+				
+			</li>
+		<ul>
+	</p>
+
+
+
+	
+</body>
+
+<script>
+
+	
+		let img;				
+		let description;		
+		let audioDescription;	
+		
+		
+		const folder = "images/"; 
+		const filenames = 
+		[
+			"kypelo.png",
+			"maxairi.png",
+			"kolokitha.png",
+			"Siko.png",
+			"aggelos.png",
+			"79388_2000_2000-500x377.jpg"
+		];
+		
+		
+		const imgDescriptions = 
+		[
+			"Η ονομασία του αγγείου προέρχεται από τις λέξεις οίνος και χέω. Είναι από τα πιο συνηθισμένα αγγεία και διακρίνεται για την πληθώρα διαφορετικών τύπων. Διακρίνονται 8 τύποι ενώ ο John Beazley διακρίνει 10 διαφορετικούς τύπους. Το στόμιο μπορεί να είναι τριφυλλόσχημο ή κυκλικό. Το σώμα σε άλλες περιπτώσεις είναι λεπτοκαμωμένο ενώ σε άλλες έχει το σχήμα βολβού. Ο λαιμός και ο ώμος μπορεί να είναι ξεχωριστοί ή να σχηματίζουν ενιαία καμπύλη με το σώμα. Χρησιμοποιείται για την άντληση ή το σερβίρισμα του οίνου και το βρίσκουμε ως κτέρισμα στους τάφους μαζί με τις ληκύθους. ",
+			"Το μαχαίρι είναι από τα πρώτα εργαλεία που χρησιμοποίησε ο άνθρωπος. Τα πρώτα λίθινα, σχεδόν ακατέργαστα, μαχαίρια παρουσιάζονται κατά τη μέση ευρωπαϊκή παλαιολιθική εποχή, ενώ κατά τη νεότερη παλαιολιθική εποχή συναντούνται οι λεπτές λεπίδες από πυριτόλιθο. Τα μεταλλικά  μαχαίρια εμφανίστηκαν κατά την εποχή του ορείχαλκου. Κατά την εποχή του σιδήρου, το μαχαίρι τελειοποιήθηκε και έφερε πολλά γλυπτά διακοσμητικά στοιχεία. Η τέχνη της μαχαιροποιίας αναπτύχθηκε ιδιαίτερα κατά το 14ο αιώνα με θαυμάσια δείγματα τις ατσάλινες λεπίδες της αγγλικής πόλης Σέφιλντ. Κατά το 15ο αι. εμφανίστηκαν για πρώτη φορά τα τραπεζομάχαιρα, με εξαιρετικά διακοσμημένες χειρολαβές και το οικόσημο του ιδιοκτήτη (π.χ. του Δούκα της Βουργουνδίας, που βρίσκονται στο Βρετανικό Μουσείο του Λονδίνου). Το μαχαίρι χρησιμοποιήθηκε ευρύτατα και ως πολεμικό όπλο. ",
+			"Η κολοκύθα, γνωστή και ως γλυκοκολοκύθα, είναι ένα από τα πιο δημοφιλή κηπευτικά που φυτεύουμε στον ανοιξιάτικο λαχανόκηπο για να απολαύσουμε τους καλοκαιρινούς μήνες. Συγγενές λαχανικό με το κολοκύθι, η κολοκύθα ανήκει στην ίδια οικογένεια με την καλλιέργεια του αγγουριού, την καλλιέργεια του πεπονιού και την καλλιέργεια του καρπουζιού. Η γλυκοκολοκύθα έχει πλούσια βλάστηση και γρήγορη ανάπτυξη με έρποντες βλαστούς και διαθέτει στρογγυλά φύλλα που είναι μεγαλύτερα από τα φύλλα της καλλιέργειας κολοκυθιού.",
+			"Το σύκο είναι ο εδώδιμος καρπός της κοινής συκιάς (Ficus carica), ξυλώδους δέντρου που συναντάται αυτοφυές σχεδόν σε όλη τη Μεσόγειο και καλλιεργείται σε πολλές περιοχές του κόσμου για τους καρπούς του. Το σχήμα του σύκου είναι στρογγυλό με αμβλεία μύτη στο μέρος του κοτσανιού και επίπεδο στη βάση, μοιάζει με σακούλα. Η τομή ενός σύκου πριν αρχίσει να ωριμάζει μοιάζει με το σχήμα μπαστούνι της τράπουλας. Αρχικά είναι πράσινο και καθώς ωριμάζει είτε γίνεται βιολετί (λουμπάρδικοσύκο), είτε καφεπράσινο (άσπρο σύκο) και στη συνέχεια ζαρώνει. Το λουμπάρδικο σύκο ωριμάζει κατά τον Αύγουστο, δηλαδή περίπου ένα μήνα αργότερα από το άσπρο. Η ψίχα κάτω από τη φλούδα έχει μικρό πάχος και είναι άσπρη, ενώ πιο μέσα ο καρπός είναι κοκκινωπός, όπου βρίσκονται πολλά κουκούτσια. Τα κουκούτσια είναι μικρά και συγκρατούνται με ίνες μέσα σε ημίρρευστη μάζα, όπως στη ντομάτα, με τη διαφορά ότι το σύκο είναι έντονα ινώδες και αδιαφανές.",
+		    "Πνεύμα μυστήριο, δαίμονας ή άγγελος, όπως τον χαρακτήρισε σε ποίημά του ο Λαμαρτίνος, λάτρης και λατρεμένος γυναικών αλλά και αντρών, εραστής παράφορος αλλά και μέχρι κυνισμού ωμός, αγγελόμορφος αλλά και δύσμορφος, θαυμαστής του ελληνικού πνεύματος αλλά και αμφιλεγόμενος φιλέλληνας, θιασώτης του εξωτισμού αλλά και μόνιμος νοσταλγός της γηραιάς Αλβιώνος, ο Τζωρτζ Γκόρντον Μπάυρον αναπολεί τη ζωή του, πνιγμένος μέσα στην υγρασία του Μεσολογγίου, κουρασμένος από το κυνήγι των προσωπικών του φαντασμάτων, γέρος στα τριάντα έξι του χρόνια. ",
+		    "Νίκος Εγγονόπουλος βιογραφία:<br>Ο Νίκος Εγγονόπουλος υπήρξε Εισηγητής και κυρίαρχη μορφή μιας ιδιότυπης, προσαρμοσμένης στα ελληνικά δεδομένα, εκδοχής του υπερρεαλισμού, εκπρόσωπος της ονομαζόμενης γενιάς του ΄30, συνδυάζει στοιχεία και εικόνες από ένα ευρύ φάσμα της ελληνικής παράδοσης, από τη μυθολογία και την αρχαιότητα έως το Βυζάντιο, τα νεότερα χρόνια και τη σύγχρονη εποχή, με τρόπο αντισυμβατικό, άλλοτε πικρά ειρωνικό κι άλλοτε χιουμοριστικό.",
+		];
+		
+		
+		/*
+			We need to organize the audio
+		*/
+		const audioFolder = "audio/";
+		const audioFiles = 
+		[
+			"aggeio.mp3",
+			"maxairi.mp3",
+			"Kolokytha.mp3",
+			"Siko.mp3",
+			"aggelos.mp3",
+			"eggonopoulos7.mp3"
+		];
+		
+		
+		let audioButtonImg;
+		const audioImg = ["audio-off-2.png", "audio-on-2.png"];
+		let audioSwitch = 1; 
+		
+		let counter = 0;
+		
+		let arrowLeft;
+		let arrowRIght;
+		
+		let sound;
+		
+		
+		let buttonPlay = {x:950, y:10, w:300, h:100, text:'Play Sound', text_size:50};
+		
+		buttonPlay.on_pressed = play;
+		
+		
+		
+		
+		
+		function preload() 
+		{
+			img = loadImage(folder + filenames[counter]);
+			sound = createAudio('1936music.mp3');
+		}
+		
+		
+		
+		
+		function setup() 
+		{
+			createCanvas(1920, 1100);	
+			
+			description = createSpan(imgDescriptions[counter]);
+			description.position(1000, 550);
+			
+			arrowLeft = createImg("images/LeftKeyArrrow.png");
+			arrowRight = createImg("images/RightKeyArrrow.png");
+			
+			arrowLeft.mousePressed(pressedLeft);
+			arrowRight.mousePressed(pressedRight);
+			
+			
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			audioDescription.play();
+			
+			audioButtonImg = createImg(folder+audioImg[1]);
+			audioButtonImg.mousePressed(audioSwitchF);
+button(buttonPlay);
+		}
+		
+		function draw() 
+		{
+		clear();
+		background(163,165,141);
+			image(img, 0, 10, 955, 700);
+									
+			arrowLeft.position(10,880);
+			arrowRight.position(880,880);
+			
+			arrowLeft.size(90,90);
+			arrowRight.size(90,90);
+			
+			audioButtonImg.position( 1000, 500);
+			
+			button(buttonPlay);
+		}
+		
+		function play() // this is called when the button is clicked
+{
+	//playing = true; // we check this variable in draw()
+	console.log('Play is clicked');
+	
+	sound.stop();// play the sound
+	if (audioSwitch == 1)
+				sound.play();
+}
+		
+		function pressedLeft()
+		{
+		   
+			counter--;
+			
+			if (counter < 0)
+			{
+				counter = filenames.length-1;
+			}
+		}
+		
+		function pressedRight()
+		{
+			counter++;
+			
+			if (counter >= filenames.length)
+			{
+				counter = 0;
+			}
+			
+			
+		}
+		
+		function mouseClicked()
+		{	
+			img = loadImage(folder + filenames[counter]);	
+			description.html(imgDescriptions[counter]);
+			
+			audioDescription.stop();
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			if (audioSwitch == 1)
+				audioDescription.play();
+		}
+		
+		function keyPressed()
+		{
+			console.log(keyCode);
+		
+			if (keyCode == '37') 
+			{
+				pressedLeft();
+				mouseClicked();
+			} 
+			else if (keyCode == 39) 
+			{
+				pressedRight();
+				mouseClicked();
+			}
+			
+			if (keyCode == 32)
+				audioSwitchF();
+		}
+		
+		function audioSwitchF()
+		{
+			if (audioSwitch == 0)
+			{
+				audioSwitch = 1;
+				audioDescription.play();
+			}
+			else
+			{
+				audioSwitch = 0;
+				audioDescription.stop();
+			}
+				
+			audioButtonImg.remove();
+			audioButtonImg = createImg(folder+audioImg[audioSwitch]);
+			audioButtonImg.mousePressed(audioSwitchF);
+		}
+		
+
+	</script>
+</html>

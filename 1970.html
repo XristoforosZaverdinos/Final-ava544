@@ -1,0 +1,245 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Παρουσίαση Έργου Τέχνης</title>
+	
+	<script src="p5.min.js">
+	</script>	
+	<script src="p5.sound.js">
+	</script>
+	<script src="p5.button.min.js">
+	</script>
+</head>
+
+<body> 
+
+	<h1>Άνθιμος ο Τραλλεύς και Ισίδωρος ο Μιλήσιος, 1970</h1>
+
+	<p>
+		Η παρακάτω παρουσίαση του πίνακα παραθέτει ππληροφορίες σχετικά με το περιεχόμενο της συνθεση και για τον καλλητέχνη του έργου, μέσω διάδρασης
+		<ul>
+			<li>
+				Χρησημοποίησε τα βελάκια για να περιηγηθείς στις εικόνες. 
+			</li>
+			<li>
+				Πατώντας πάνω στο κουμπί Play Sound ο χρήστης μπορεί να ενεργοποιήσει την ηχητική επένδυση.
+			</li>
+			<li>
+				Ο χρήστης μπορεί να ακούσει την αφήγηση του κειμένου πατώντας δύο φορές στο εικονίδιο του ηχείου (για τη πρώτη αφήγηση)
+				
+			</li>
+		<ul>
+	</p>
+
+
+
+	
+</body>
+
+<script>
+
+	
+	
+		let img;				
+		let description;		
+		let audioDescription;	
+		
+		
+		
+		
+		const folder = "images/"; 
+		const filenames = 
+		[
+			"Blueprint.png",
+			"leftperson.png",
+			"rightperson.png",
+			"ruler.png",
+			"backround.jpg"
+		];
+		
+		
+		const imgDescriptions = 
+		[
+			"Τα τολμηρά σχέδια που κατέστρωσε ο Ανθέμιος για τον ναό της Αγίας Σοφίας επιδεικνύουν τόσο τις γνώσεις του, όσο και την άγνοιά του. Το κορυφαίο σχεδιαστικό του επίτευγμα εδώ αφορά τον τρούλο του ναού, που φαίνεται σαν να αιωρείται στον αιθέρα, πάνω από τα γήινα. Οι δεξιότητές του ως πολιτικού μηχανικού διαφάνηκαν και στην επισκευή των αντιπλημμυρικών έργων του Δάρας.",
+			"Ανθέμιος ο Τραλλιανός Γεννήθηκε στη Σελεύκεια Καρίας, πόλη που ονομαζόταν και Τράλλεις, από όπου και η προσωνυμία του.Ο Ανθέμιος συνεργάσθηκε με τον Ισίδωρο τον Μιλήσιο για την κατασκευή του Ναού της Αγίας Σοφίας στην Κωνσταντινούπολη (532 μ.Χ.), μετά από ανάθεση του αυτοκράτορα Ιουστινιανού, καθώς ο προηγούμενος ναός είχε καταστραφεί στη Στάση του Νίκα. <br><br>  Ο Ανθέμιος ήταν εξίσου ικανός ως μαθηματικός. Περιέγραψε την κατασκευή της ελλείψεως με νήμα, όπως αναφέρει σχόλιο του Ευτόχιου στις Κωνικές τομές του Απολλωνίου, και συνέγραψε πραγματεία πάνω στις κωνικές τομές, μία θαυμάσια προετοιμασία για τον σχεδιασμό του τρούλου της Αγίας Σοφίας. Συνέταξε επίσης μία επισκόπηση για τα είδη και τις διατάξεις των κατόπτρων στο έργο του για τα παράδοξα μηχανήματα, που ήταν γνωστό στους Άραβες μαθηματικούς, όπως τον Ιμπν αλ-Χαϊθάμ (που θεωρείται ο πατέρας της οπτικής). Στη διαδικασία δημιουργίας επιφανειών που ανακλούν προς ένα σημείο (εστιάζουν)",
+			"Ο Ισίδωρος ο Μιλήσιος (Μίλητος, 442 μ.Χ. - 537 μ.Χ.) ήταν Έλληνας Μικρασιάτης μαθηματικός, μηχανικός και αρχιτέκτονας. Ως βασικός συνεργάτης του Ανθεμίου από τις Τράλλεις, συμμετείχε στην ανοικοδόμηση του ναού της Αγίας Σοφίας στην Κωνσταντινούπολη, έχοντας μεγάλη συμβολή στην εκπόνηση και υλοποίηση των αρχιτεκτονικών σχεδίων. Πιθανότατα, συμμετείχε στην κατασκευή και άλλων έργων επί αυτοκράτορος Ιουστινιανού Α', όπως και στην επίβλεψη αντιπλημμυρικών και οχυρωματικών έργων.<br>",
+			"Σύμφωνα με τον Ηρόδοτο, οι αρχαίοι Έλληνες γνώρισαν τους γνώμονες από τους Χαλδαίους. Τελειοποίησαν τη χρήση του γνώμονα μιας και είχαν κάνει πολύ μεγάλες προόδους στη γεωμετρία, την τριγωνομετρία και την αστρονομία. Ο Αναξίμανδρος ο Μιλήσιος (610 -540 π.Χ.) εισήγαγε για πρώτη φορά τη χρήση του γνώμονα στην αρχαία Ελλάδα. Κατασκεύασε έναν πυραμοειδή γνώμονα στην Σπάρτη ο οποίος μπορούσε να δείχνει την αληθή μεσημβρία, τη χρονική στιγμή δηλαδή που μεσουρανεί ο ήλιος. Ο Αναξιμένης (586-525 π.Χ.) τελειοποίησε τον γνώμονα και κατασκεύασε στην Σπάρτη ένα ηλιακό ρολόι. Ο Μέτων ο Αθηναίος, αστρονόμος της αρχαίας Αθήνας του 5ου π.Χ. αιώνα, χρησιμοποιώντας το ηλιοτρόπιο, ένα είδος τελειοποιημένου γνώμονα, ανακάλυψε ότι οι εαρινή και η φθινοπωρινή ισημερία καθώς και το θερινό και χειμερινό ηλιοστάσιο χωρίζουν το χρόνο σε τέσσερις εποχές άνισης διάρκειας. Οι μετρήσεις του Μέτωνα χρησίμευσαν ως βάση για τον καθορισμό της ετήσιας φαινομενικής τροχιάς του ηλίου που είναι γνωστή και ως εκλειπτική. Το μεσημέρι του χειμερινού ηλιοστασίου (21 Δεκεμβρίου) ο γνώμονας δημιουργεί τη μέγιστη σκιά σε σχέση με το μεσημέρι οποιασδήποτε άλλης ημέρας, ενώ το μεσημέρι του θερινού ηλιοστασίου (21 Ιουνίου) η σκιά του γνώμονα είναι η ελάχιστη.",
+            "Νίκος Εγγονόπουλος βιογραφία:<br>Ο Νίκος Εγγονόπουλος υπήρξε εισηγητής και κυρίαρχη μορφή μιας ιδιότυπης, προσαρμοσμένης στα ελληνικά δεδομένα, εκδοχής του υπερρεαλισμού, εκπρόσωπος της ονομαζόμενης γενιάς του ΄30, συνδυάζει στοιχεία και εικόνες από ένα ευρύ φάσμα της ελληνικής παράδοσης, από τη μυθολογία και την αρχαιότητα έως το Βυζάντιο, τα νεότερα χρόνια και τη σύγχρονη εποχή, με τρόπο αντισυμβατικό, άλλοτε πικρά ειρωνικό κι άλλοτε χιουμοριστικό."			
+		];
+		
+		
+		const audioFolder = "audio/";
+		const audioFiles = 
+		[
+			"Blue.mp3",
+			"leftperson.mp3",
+			"rightperson.mp3",
+			"ruller.mp3",
+			"eggonopoulos7.mp3"
+		];
+		
+		
+		let audioButtonImg;
+		const audioImg = ["audio-off-2.png", "audio-on-2.png"];
+		let audioSwitch = 1; 
+		
+		let counter = 0;
+		
+		
+		
+		let arrowLeft;
+		let arrowRIght;
+		
+		let sound;
+		
+		
+		let buttonPlay = {x:950, y:10, w:300, h:100, text:'Play Sound', text_size:30};
+		
+		buttonPlay.on_pressed = play;
+		
+		
+		
+		
+		function preload() 
+		{
+			img = loadImage(folder + filenames[counter]);
+			
+			sound = createAudio('1970music.mp3');
+		}
+		
+		
+		
+		function setup() 
+		{
+			createCanvas(1920, 1100);
+			
+			
+			
+			description = createSpan(imgDescriptions[counter]);
+			description.position(1000, 580);
+			
+			arrowLeft = createImg("images/LeftKeyArrrow.png");
+			arrowRight = createImg("images/RightKeyArrrow.png");
+			
+			arrowLeft.mousePressed(pressedLeft);
+			arrowRight.mousePressed(pressedRight);
+			
+			
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			audioDescription.play();
+			
+			audioButtonImg = createImg(folder+audioImg[1]);
+			audioButtonImg.mousePressed(audioSwitchF);
+			
+			//sound.play();
+			button(buttonPlay);
+			
+			}
+			
+			
+			
+		
+		function draw() 
+		{
+		clear();
+		background(163,165,141);
+			image(img, 90, 0, 692, 910);
+			
+									
+			arrowLeft.position(10,550);
+			arrowRight.position(790,550);
+			
+			arrowLeft.size(90,90);
+			arrowRight.size(90,90);
+			
+			audioButtonImg.position( 1000, 520);
+			
+			button(buttonPlay);
+			
+		}
+		
+		
+		function play() // this is called when the button is clicked
+{
+	//playing = true; // we check this variable in draw()
+	console.log('Play is clicked');
+	
+	sound.stop();// play the sound
+	if (audioSwitch == 1)
+				sound.play();
+}
+		
+		function pressedLeft()
+		{
+		   
+			counter--;
+			
+			if (counter < 0)
+			{
+				counter = filenames.length-1;
+			}
+		}
+		
+		function pressedRight()
+		{
+			counter++;
+			
+			if (counter >= filenames.length)
+			{
+				counter = 0;
+			}
+			
+			
+		}
+		
+		function mouseClicked()
+		{	
+			img = loadImage(folder + filenames[counter]);	
+			description.html(imgDescriptions[counter]);
+			
+			audioDescription.stop();
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			if (audioSwitch == 1)
+				audioDescription.play();
+		}
+		
+		function keyPressed()
+		{
+			console.log(keyCode);
+		
+			if (keyCode == '37') 
+			{
+				pressedLeft();
+				mouseClicked();
+			} 
+			else if (keyCode == 39) 
+			{
+				pressedRight();
+				mouseClicked();
+			}
+			
+			if (keyCode == 32)
+				audioSwitchF();
+		}
+		
+		function audioSwitchF()
+		{
+			if (audioSwitch == 0)
+			{
+				audioSwitch = 1;
+				audioDescription.play();
+			}
+			else
+			{
+				audioSwitch = 0;
+				audioDescription.stop();
+			}
+				
+			audioButtonImg.remove();
+			audioButtonImg = createImg(folder+audioImg[audioSwitch]);
+			audioButtonImg.mousePressed(audioSwitchF);
+		}
+		
+
+	</script>
+</html>

@@ -1,0 +1,234 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Παρουσίαση Έργου Τέχνης</title>
+	
+	<script src="p5.min.js">
+	</script>	
+	<script src="p5.sound.js">
+	</script>
+	
+	<script src="p5.button.min.js">
+	</script>
+	
+</head>
+
+<body> 
+
+	<h1>Δήλος, 1939</h1>
+
+	<p>
+		Η παρακάτω παρουσίαση του πίνακα παραθέτει ππληροφορίες σχετικά με το περιεχόμενο της συνθεση και για τον καλλητέχνη του έργου, μέσω διάδρασης
+		<ul>
+			<li>
+				Χρησημοποίησε τα βελάκια για να περιηγηθείς στις εικόνες. 
+			</li>
+			<li>
+				Πατώντας πάνω στο κουμπί Play Sound ο χρήστης μπορεί να ενεργοποιήσει την ηχητική επένδυση.
+			</li>
+			<li>
+				Ο χρήστης μπορεί να ακούσει την αφήγηση του κειμένου πατώντας δύο φορές στο εικονίδιο του ηχείου (για τη πρώτη αφήγηση)
+				
+			</li>
+		<ul>
+	</p>
+
+
+	
+</body>
+
+<script>
+
+	
+	
+		let img;				
+		let description;		
+		let audioDescription;	
+	
+		const folder = "images/"; 
+		const filenames = 
+		[
+			"gymno agalma.png",
+			"anurvpomorfo pouli.png",
+			"xeri poy deixnei.png",
+			"naos.png",
+			"kyones.png",
+			"75461_2000_2000-500x604.jpg"
+		];
+		
+		
+		const imgDescriptions = 
+		[
+		"Ο Νίκος Εγγονόπουλος τόνιζε μέσω των έργων του την έκδηλη στους πίνακές του ερωτική διάθεση, που προσωποποιείται στις γυμνές αντρικές και γυναικείες μορφές που πρωταγωνιστούν. Ο ίδιος τόνιζε την καταλυτική επιρροή που άσκησε στο έργο του η τέχνη των δασκάλων του Παρθένη και Κόντογλου καθώς και η γνωριμία του με τον ποιητή Ανδρέα Εμπειρίκο και τον κατεξοχήν εκπρόσωπο της μεταφυσικής ζωγραφικής Giorgio de Chirico.",
+		"Ο Νίκος Εγγονόπουλος τόνιζε μέσω των έργων του την έκδηλη στους πίνακές του ερωτική διάθεση, που προσωποποιείται στις γυμνές αντρικές και γυναικείες μορφές που πρωταγωνιστούν. Ο ίδιος τόνιζε την καταλυτική επιρροή που άσκησε στο έργο του η τέχνη των δασκάλων του Παρθένη και Κόντογλου καθώς και η γνωριμία του με τον ποιητή Ανδρέα Εμπειρίκο και τον κατεξοχήν εκπρόσωπο της μεταφυσικής ζωγραφικής Giorgio de Chirico.",
+		"Μέσα απο την επιλογή της τοποθέτησης του χεριού που καταδικνύει το γυμνό περιεχόμενο της εικόνας, υπογραμίζεται η ιδιέταιρη επιθυμία του να προκαλεί στις συνθέσεις του μέσω του γυμνού ανδρικού και γυναικείου κορμιου",
+		"Δωρικός Ρυθμός ονομάζεται στην αρχαία ελληνική αρχιτεκτονική, και ειδικότερα στη ναοδομία, ο ρυθμός εκείνος που διακρίνεται για τη λιτότητα, την αυστηρότητα και τη μνημειακότητά του από τον πιο διακοσμητικό Ιωνικό Ρυθμό.Οι απαρχές του Δωρικού Ρυθμού πιστεύεται ότι βρίσκονται στο Άργος και την Κόρινθο, δύο σημαντικά δωρικά κέντρα τέχνης κατά τη Γεωμετρική Περίοδο (8ος αι. π.Χ.). Ωστόσο από τά αρχιτεκτονικά κατάλοιπα τόσο πρώιμης εποχής δεν έχουν σωθεί, αφού μάλιστα για την κατασκευή τους θα πρέπει να είχε χρησιμοποιηθεί κυρίως ξύλο. Πράγματι, ο Παυσανίας αναφέρει ότι στον δωρικό ναό της Ήρας στην Ολυμπία (έναν από τους αρχαιότερους) είδε έναν ξύλινο κίονα ανάμεσα στους λίθινους. Φαίνεται ότι οι ξύλινοι κίονες αντικαταστάθηκαν σταδιακά με λίθινους. Αυτό δικαιολογεί και το ότι κανένας από αυτούς δεν είναι ίδιος με κάποιον άλλο.",
+		"Τρεις είναι οι τρόποι ή ρυθμοί σύμφωνα με τους οποίους είναι κτισμένα τα αρχαία κτήρια:<br>ο δωρικός<br>ο ιωνικός<br>ο κορινθιακός<br>Οι εξωτερικοί κίονες και το τμήμα επάνω από αυτούς, ο θριγκός, μας δείχνουν τον αρχιτεκτονικό ρυθμό του κάθε κτηρίου. Οι κίονες έχουν βάση, κορμό και κιονόκρανο στο επάνω μέρος τους. Ο κορμός των κιόνων συνήθως δεν είναι λείος αλλά έχει ραβδώσεις.Η διαφορά των τριών ρυθμών έγκειται <br>Στη βάση: Οι κίονες του δωρικού ρυθμού δεν έχουν βάση ενώ του ιωνικού και του κορινθιακού έχουν. <br>Στις ραβδώσεις του κορμού: Οι ιωνικοί και οι κορινθιακοί κίονες έχουν περισσότερες ραβδώσεις από τους δωρικούς. <br>Στο κιονόκρανο: Κάθε ρυθμός έχει διαφορετικό κιονόκρανο, πιο απλό ή πιο περίτεχνο!<br>Από το κιονόκρανο καταλαβαίνουμε αμέσως σε ποιον ρυθμό ανήκει ένας κίονας!Το δωρικό κιονόκρανο αποτελείται στο πάνω μέρος από τον άβακα, μία τετράγωνη πλάκα και στο κάτω μέρος από τον εχίνο, ένα καμπύλο τμήμα.Το ιωνικό κιονόκρανο έχει άβακα στο πάνω μέρος κι εχίνο στο κάτω, ενώ ανάμεσά τους έχει τις έλικες.Το κορινθιακό κιονόκρανο έχει άβακα και από κάτω τον κάλαθο, το κυρίως τμήμα του που έχει τη μορφή καλαθιού με σκαλιστά φύλλα και έλικες.",
+		"Νίκος Εγγονόπουλος βιογραφία:<br>Ήδη προπολεμικά παρουσίασε ζωγραφικά του έργα σε ατομική έκθεση που οργανώθηκε στην οικία του Ν. Καλαμάρη (1939), προκαλώντας τις έντονες αντιδράσεις της κριτικής, και ακολούθησε σειρά ατομικών παρουσιάσεων και συμμετοχών σε ομαδικές και διεθνείς εκθέσεις.<br> Τον Σεπτέμβριο του 1939 εκδόθηκε η δεύτερη ποιητική του συλλογή, Τα Κλειδοκύμβαλα της Σιωπής, ενώ τον Νοέμβριο πραγματοποιήθηκε η πρώτη ατομική έκθεση ζωγραφικής του, στο σπίτι του Νίκου Καλαμάρη. Την ίδια περίοδο εργάστηκε για την παράσταση της Ηλέκτρας του Σοφοκλή στο Θέατρο Κοτοπούλη, σχεδιάζοντας τα κοστούμια των ηθοποιών και συμμετείχε σε ομαδική έκθεση Ελλήνων καλλιτεχνών στη Νέα Υόρκη.",
+		];
+		
+		
+		const audioFolder = "audio/";
+		const audioFiles = 
+		[
+			"ervtikhdiathesh.mp3",
+			"ervtikhdiathesh.mp3",
+			"Xeri.mp3",
+			"dorikosrithmos.mp3",
+			"kyones",
+			"1939.mp3"
+		];
+		
+		
+		let audioButtonImg;
+		const audioImg = ["audio-off-2.png", "audio-on-2.png"];
+		let audioSwitch = 1; 
+		
+		let counter = 0;
+		
+		let arrowLeft;
+		let arrowRIght;
+		
+		
+		let sound;
+		
+		
+		let buttonPlay = {x:950, y:10, w:300, h:100, text:'Play Sound', text_size:50};
+		
+		buttonPlay.on_pressed = play;
+		
+		
+		
+		
+		
+		function preload() 
+		{
+			img = loadImage(folder + filenames[counter]);
+			sound = createAudio('1939music.mp3');
+		}
+		
+		function setup() 
+		{
+			createCanvas(1920, 1100);	
+			
+			description = createSpan(imgDescriptions[counter]);
+			description.position(1000, 650);
+			
+			
+			arrowLeft = createImg("images/LeftKeyArrrow.png");
+			arrowRight = createImg("images/RightKeyArrrow.png");
+			
+			arrowLeft.mousePressed(pressedLeft);
+			arrowRight.mousePressed(pressedRight);
+			
+			
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			audioDescription.play();
+			
+			audioButtonImg = createImg(folder+audioImg[1]);
+			audioButtonImg.mousePressed(audioSwitchF);
+button(buttonPlay);
+		}
+		
+		function draw() 
+		{
+		clear();
+		background(163,165,141);
+			image(img, 90, 20, 750, 956);
+			
+									
+			arrowLeft.position(10,670);
+			arrowRight.position(848,670);
+			
+			arrowLeft.size(90,90);
+			arrowRight.size(90,90);
+			
+			audioButtonImg.position( 1000, 600);
+			
+			button(buttonPlay);
+		}
+		
+		function play() // this is called when the button is clicked
+{
+	//playing = true; // we check this variable in draw()
+	console.log('Play is clicked');
+	
+	sound.stop();// play the sound
+	if (audioSwitch == 1)
+				sound.play();
+}
+		
+		function pressedLeft()
+		{
+		   
+			counter--;
+			
+			if (counter < 0)
+			{
+				counter = filenames.length-1;
+			}
+		}
+		
+		function pressedRight()
+		{
+			counter++;
+			
+			if (counter >= filenames.length)
+			{
+				counter = 0;
+			}
+			
+			
+		}
+		
+		function mouseClicked()
+		{	
+			img = loadImage(folder + filenames[counter]);	
+			description.html(imgDescriptions[counter]);
+			
+			audioDescription.stop();
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			if (audioSwitch == 1)
+				audioDescription.play();
+		}
+		
+		function keyPressed()
+		{
+			console.log(keyCode);
+		
+			if (keyCode == '37') 
+			{
+				pressedLeft();
+				mouseClicked();
+			} 
+			else if (keyCode == 39) 
+			{
+				pressedRight();
+				mouseClicked();
+			}
+			
+			if (keyCode == 32)
+				audioSwitchF();
+		}
+		
+		function audioSwitchF()
+		{
+			if (audioSwitch == 0)
+			{
+				audioSwitch = 1;
+				audioDescription.play();
+			}
+			else
+			{
+				audioSwitch = 0;
+				audioDescription.stop();
+			}
+				
+			audioButtonImg.remove();
+			audioButtonImg = createImg(folder+audioImg[audioSwitch]);
+			audioButtonImg.mousePressed(audioSwitchF);
+		}
+		
+
+	</script>
+</html>
