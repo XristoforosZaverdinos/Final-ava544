@@ -1,0 +1,223 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Παρουσίαση Έργου Τέχνης</title>
+	
+	<script src="p5.min.js">
+	</script>	
+	<script src="p5.sound.js">
+	</script>
+	
+	<script src="p5.button.min.js">
+	</script>
+	
+</head>
+
+<body> 
+
+	<h1>Καίσαρ και Κλεοπάτρα, 1962</h1>
+
+	<p>
+		Η παρακάτω παρουσίαση του πίνακα παραθέτει ππληροφορίες σχετικά με το περιεχόμενο της συνθεση και για τον καλλητέχνη του έργου, μέσω διάδρασης
+		<ul>
+			<li>
+				Χρησημοποίησε τα βελάκια για να περιηγηθείς στις εικόνες. 
+			</li>
+			<li>
+				Πατώντας το κουμπί Play Sound ο χρήστης μπορεί να ακούσει την ηχητική επένδυση
+			</li>
+			<li>
+				Ο χρήστης μπορεί να ακούσει την αφήγηση του κειμένου πατώντας δύο φορές στο εικονίδιο του ηχείου (για τη πρώτη αφήγηση)
+				
+			</li>
+		<ul>
+	</p>
+
+
+
+	
+</body>
+<script>
+
+	
+	
+		let img;				
+		let description;		
+		let audioDescription;	
+		
+		
+		const folder = "images/"; 
+		const filenames = 
+		[
+			"sfhka.png",
+			"foinikas.png",
+			"erimos.png",
+			
+		];
+		
+		
+		const imgDescriptions = 
+		[
+		"Οι πρώτοι Αιγυπτιολόγοι και εκσκαφείς του συγκροτήματος της Γκίζα πίστευαν ότι τόσο η Σφίγγα όσο και τα υπόλοιπα οικοδομήματα στη περιφέρειά της, ήταν προγενέστερα της θεωρούμενης χρονολογίας κατασκευής τους.Ο ιδρυτής του Αρχαιολογικού Μουσείου του Καΐρου, Auguste Mariette, το 1857 έφερε στο φως μια στήλη απογραφής εμπορευμάτων. Ανάμεσα στα υπόλοιπα, αναφέρεται ότι ο φαραώ Χέοπας βρήκε τυχαία το άγαλμα το οποίο ήταν ήδη μισοθαμμένο στην άμμο.Ο Gaston Camille Charles Maspero, Γάλλος αιγυπτιολόγος, αποτέλεσε τον δεύτερο διευθυντή του Αρχαιολογικού Μουσείου του Καΐρου. Σε μια εργασία του που έγραψε το 1886 αναφέρει ότι πάνω στην επιγραφή της στήλης της Σφίγγας αναγράφεται ότι ο φαραώ Χέοπας είχε ξεκινήσει ανασκαφές έτσι ώστε να ξεθάψει τη μισοθαμμένη Σφίγγα, και άρα ήταν ήδη εκεί στα χρόνια του Χεφρήνου (γιος του Χέοπα).Από το άγαλμα λείπει η μύτη, μήκους ενός μέτρου. Ενδελεχής εξέταση τού προσώπου της Σφίγγας δείχνει ότι η μύτη σφυροκοπήθηκε με μακριές βέργες ή σμίλες.Ο αιγύπτιος ιστορικός του 15ου αιώνα μ.Χ. al-Maqrizi, αναφέρει ότι η καταστροφή της μύτης οφείλεται στον μουσουλμάνο εικονομάχο Muhhamad Sa’im al-Dahr. Το 1378 ο Muhhamad, βλέποντας ντόπιους Αιγύπτιους να προσφέρουν δωρεές στο άγαλμα έτσι ώστε να αυξηθεί η παραγωγή των καλλιεργειών τους, εξοργίστηκε και κατέστρεψε τη μύτη τού αγάλματος. Για τον λόγο αυτό κρίθηκε ένοχος για βανδαλισμό αρχαιοτήτων και καταδικάστηκε σε θάνατο δι′ απαγχονισμού.",
+		"Ο φοίνικας, ως μακρόβιο φυτό, που πρωτοκαλλιεργήθηκε από τους Σουμέριους, θεωρούνταν το πλέον ιερό δέντρο και σύμβολο ευφορίας και γονιμότητας, σχετιζόμενο με διάφορες θεότητες, ενώ στο αρχαίο βασίλειο της Αιγύπτου αποτελούσε σύμβολο της ειρήνης. Χρησιμοποιήθηκε για τον διάκοσμο καλλιτεχνικών μνημείων της φοινικικής και της κυπριακής τέχνης εικονιζόμενο ως δέντρο της ζωής, ενώ συχνή είναι η εικονογραφική του παρουσία σε μνημεία της κρητικής και μυκηναϊκής τέχνης με την απόδοση στα κλαδιά του νικητήριας σημασίας.",
+         "Νίκος Εγγονόπουλος βιογραφία:<br>Ένα χρόνο νωρίτερα, το 1938, είχε κυκλοφορήσει από τις εκδόσεις Κύκλος η πρώτη του ποιητική συλλογή με τίτλο “Μην ομιλείτε εις τον οδηγόν”, ενώ το 1939 εκδόθηκαν τα “Κλειδοκύμβαλα της σιωπής”. Το 1954 εκπροσώπησε κατ’ αποκλειστικότητα την Ελλάδα στην Μπιενάλε της Βενετίας με εκατό έργα, και ένα χρόνο αργότερα πήρε μέρος στην Μπιενάλε του Σάο Πάολο. Μετείχε επίσης σε όλες τις εκθέσεις της ομάδας”Αρμός”, της οποίας ήταν ιδρυτικό μέλος (1964). "
+		 ];
+		
+		
+		const audioFolder = "audio/";
+		const audioFiles = 
+		[
+			"sfika.mp3",
+			"foinikas.mp3",
+			"1938.mp3",
+			
+		];
+		
+		
+		let audioButtonImg;
+		const audioImg = ["audio-off-2.png", "audio-on-2.png"];
+		let audioSwitch = 1; 
+		
+		let counter = 0;
+		
+		let arrowLeft;
+		let arrowRIght;
+		
+		
+		let sound;
+		
+		
+		let buttonPlay = {x:950, y:10, w:300, h:100, text:'Play Sound', text_size:50};
+		
+		buttonPlay.on_pressed = play;
+		
+		
+		function preload() 
+		{
+			img = loadImage(folder + filenames[counter]);
+			sound = createAudio('1962-1.mp3');
+		}
+		
+		function setup() 
+		{
+			createCanvas(1900, 1100);	
+			
+			description = createSpan(imgDescriptions[counter]);
+			description.position(1000, 450);
+			
+			arrowLeft = createImg("images/LeftKeyArrrow.png");
+			arrowRight = createImg("images/RightKeyArrrow.png");
+			
+			arrowLeft.mousePressed(pressedLeft);
+			arrowRight.mousePressed(pressedRight);
+			
+			
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			audioDescription.play();
+			
+			audioButtonImg = createImg(folder+audioImg[1]);
+			audioButtonImg.mousePressed(audioSwitchF);
+button(buttonPlay);
+		}
+		
+		function draw() 
+		{
+				clear();
+		background(163,165,141);
+			image(img, 0, 100, 955, 464);
+									
+			arrowLeft.position(10,750);
+			arrowRight.position(880,750);
+			
+			arrowLeft.size(90,90);
+			arrowRight.size(90,90);
+			
+			audioButtonImg.position( 1000, 400);
+			
+			button(buttonPlay);
+		}
+		
+		function play() // this is called when the button is clicked
+{
+	//playing = true; // we check this variable in draw()
+	console.log('Play is clicked');
+	
+	sound.stop();// play the sound
+	if (audioSwitch == 1)
+				sound.play();
+}
+		
+		function pressedLeft()
+		{
+		   
+			counter--;
+			
+			if (counter < 0)
+			{
+				counter = filenames.length-1;
+			}
+		}
+		
+		function pressedRight()
+		{
+			counter++;
+			
+			if (counter >= filenames.length)
+			{
+				counter = 0;
+			}
+			
+			
+		}
+		
+		function mouseClicked()
+		{	
+			img = loadImage(folder + filenames[counter]);	
+			description.html(imgDescriptions[counter]);
+			
+			audioDescription.stop();
+			audioDescription = createAudio(audioFolder+audioFiles[counter]);
+			if (audioSwitch == 1)
+				audioDescription.play();
+		}
+		
+		function keyPressed()
+		{
+			console.log(keyCode);
+		
+			if (keyCode == '37') 
+			{
+				pressedLeft();
+				mouseClicked();
+			} 
+			else if (keyCode == 39) 
+			{
+				pressedRight();
+				mouseClicked();
+			}
+			
+			if (keyCode == 32)
+				audioSwitchF();
+		}
+		
+		function audioSwitchF()
+		{
+			if (audioSwitch == 0)
+			{
+				audioSwitch = 1;
+				audioDescription.play();
+			}
+			else
+			{
+				audioSwitch = 0;
+				audioDescription.stop();
+			}
+				
+			audioButtonImg.remove();
+			audioButtonImg = createImg(folder+audioImg[audioSwitch]);
+			audioButtonImg.mousePressed(audioSwitchF);
+		}
+		
+
+	</script>
+</html>
